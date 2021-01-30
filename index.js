@@ -77,27 +77,27 @@ const start = async (tobz = new Client()) => {
             }))
         
         tobz.onAddedToGroup(async (chat) => {
-            if(isWhite(chat.id)) return tobz.sendText(chat.id, 'Halo aku Elaina, Ketik #help Untuk Melihat List Command Ku...')
+            if(isWhite(chat.id)) return tobz.sendText(chat.id, 'Halo aku Gunsy, Ketik #menu Untuk Melihat List Command!')
             if(mtcState === false){
                 const groups = await tobz.getAllGroups()
                 // BOT group count less than
                 if(groups.length > groupLimit){
-                    await tobz.sendText(chat.id, 'Maaf, Batas group yang dapat Elaina tampung sudah penuh').then(async () =>{
+                    await tobz.sendText(chat.id, 'Maaf, Batas group yang dapat ditampung sudah penuh!').then(async () =>{
                         tobz.deleteChat(chat.id)
                         tobz.leaveGroup(chat.id)
                     })
                 }else{
                     if(chat.groupMetadata.participants.length < memberLimit){
-                        await tobz.sendText(chat.id, `Maaf, BOT keluar jika member group tidak melebihi ${memberLimit} orang`).then(async () =>{
+                        await tobz.sendText(chat.id, `Maaf, BOT keluar jika member group tidak melebihi ${memberLimit} anggota!`).then(async () =>{
                             tobz.deleteChat(chat.id)
                             tobz.leaveGroup(chat.id)
                         })
                     }else{
-                        if(!chat.isReadOnly) tobz.sendText(chat.id, 'Halo aku Gunsy, Ketik #help Untuk Melihat List Command Ku...')
+                        if(!chat.isReadOnly) tobz.sendText(chat.id, 'Halo aku Gunsy, Ketik #menu Untuk Melihat List Command!')
                     }
                 }
             }else{
-                await tobz.sendText(chat.id, 'Gunsy sedang maintenance, coba lain hari').then(async () => {
+                await tobz.sendText(chat.id, 'Gunsy sedang maintenance, coba lain hari!').then(async () => {
                     tobz.deleteChat(chat.id)
                     tobz.leaveGroup(chat.id)
                 })
