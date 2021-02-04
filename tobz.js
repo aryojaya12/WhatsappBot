@@ -657,7 +657,7 @@ module.exports = tobz = async (tobz, message) => {
             console.log(`Banchat ${name}!`)
             await tobz.sendSeen(from)
             break
-        case prefix+'sticker':
+                case prefix+'sticker':
         case prefix+'stiker':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
@@ -684,6 +684,7 @@ module.exports = tobz = async (tobz, message) => {
         case prefix+'ttp':
                 if(isReg(obj)) return
                 if(cekumur(cekage)) return
+                if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', message.id)
                 try
                 {
                     const string = body.toLowerCase().includes('#ttp') ? body.slice(5) : body.slice(5)
@@ -728,7 +729,7 @@ module.exports = tobz = async (tobz, message) => {
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            if (args.length === 1) return tobz.reply(from, `Kirim perintah *#ttp2 [ Teks ]*, contoh *#ttp2 Gunsy*`, id)
+            if (args.length === 1) return tobz.reply(from, `Kirim perintah *#ttp2 [ Teks ]*, contoh *#ttp2 Elaina*`, id)
             const ttp2t = body.slice(6)
             const lttp2 = ["Orange","White","Green","Black","Purple","Red","Yellow","Blue","Navy","Grey","Magenta","Brown","Gold"]
             const rttp2 = lttp2[Math.floor(Math.random() * (lttp2.length))]
